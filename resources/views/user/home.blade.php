@@ -16,7 +16,7 @@
 
             </div>
             <div class="col-lg-6 text-center text-lg-start">
-                <img class="img-fluid rounded animated zoomIn" src="img/pekalongan.png" alt="">
+                <img class="img-fluid rounded animated zoomIn" src="assets/img/pekalongan.png" alt="">
             </div>
         </div>
     </div>

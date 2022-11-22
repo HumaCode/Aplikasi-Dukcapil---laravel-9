@@ -9,7 +9,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="assets/img/favicon.ico" rel="icon">
+    <link href="favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,11 @@
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    {{--
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    --}}
 
     <!-- Libraries Stylesheet -->
     <link href="assets/libuser/animate/animate.min.css" rel="stylesheet">
@@ -75,19 +80,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <a href="/home" class="nav-item nav-link {{ ($title === " Home") ? 'active' : '' }}">Home</a>
-                        <a href="/status" class="nav-item nav-link {{ ($title === " Status") ? 'active' : '' }}">Cek
+                        <a href="{{ url('home') }}" class="nav-item nav-link {{ ($title == " Home") ? 'active' : ''
+                            }}">Home</a>
+                        <a href="{{ url('status') }}" class="nav-item nav-link {{ ($title == " Status") ? 'active' : ''
+                            }}">Cek
                             Status</a>
-                        <a href="#" class="nav-item nav-link {{ ($title === " Berkas") ? 'active' : '' }}">Berkas</a>
-                        <a href="/bantuan" class="nav-item nav-link {{ ($title === " Bantuan") ? 'active' : ''
-                            }}">Bantuan</a>
-                        <a href="/datadukung" class="nav-item nav-link {{ ($title === " Data Dukung") ? 'active' : ''
-                            }}">Data Dukung</a>
+                        <a href="#" class="nav-item nav-link {{ ($title == " Berkas") ? 'active' : '' }}">Berkas</a>
+                        <a href="{{ url('bantuan') }}" class="nav-item nav-link {{ ($title == " Bantuan") ? 'active'
+                            : '' }}">Bantuan</a>
+                        <a href="{{ url('data-dukung') }}" class="nav-item nav-link {{ ($title == " Data Dukung")
+                            ? 'active' : '' }}">Data Dukung</a>
 
-                        <a href="/kebijakan" class="nav-item nav-link {{ ($title === " Kebijakan Privasi") ? 'active'
-                            : '' }}">Kebijakan</a>
+                        <a href="{{ url('kebijakan') }}" class="nav-item nav-link {{ ($title == " Kebijakan Privasi")
+                            ? 'active' : '' }}">Kebijakan</a>
                     </div>
-                    <a href="/" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Logout</a>
+                    <button data-toggle="modal" data-target="#exampleModal"
+                        class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Logout</button>
+
+
                 </div>
             </nav>
 
@@ -130,7 +140,7 @@
 
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <img src="img/pekalongan.png" width="100%">
+                        <img src="assets/img/pekalongan.png" width="100%">
                     </div>
                     <div class="container px-lg-5">
                         <div class="copyright">
@@ -145,6 +155,29 @@
                     </div>
                 </div>
                 <!-- Footer End -->
+
+                {{--
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> --}}
 
 
                 <!-- Back to Top -->
