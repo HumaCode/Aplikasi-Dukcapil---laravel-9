@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use APP\Rules\Captcha;
 
 class AuthController extends Controller
 {
@@ -78,6 +79,7 @@ class AuthController extends Controller
                 'tlp'           => 'required',
                 'email'         => 'required|unique:users',
                 'password'      => 'required|min:6',
+                'g-recaptcha-response'           => new Captcha(),
             ],
         );
 

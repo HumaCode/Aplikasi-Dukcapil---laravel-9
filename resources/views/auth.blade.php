@@ -24,7 +24,9 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <script src="{{ asset('/') }}assets/js/sweetalert2.all.min.js"></script>
-
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    {{--
+    <link href="{{ captcha_layout_stylesheet_url() }}" type="text/css" rel="stylesheet"> --}}
 
     <!-- Favicons -->
     <link rel="shortcut icon" type="image/png"
@@ -64,12 +66,17 @@
 
                     <p class="social-text"><a href="password">Lupa Kata Sandi?</p></a>
 
-                    <!-- <div class="sign-in-form">
-                        {{-- {!! NoCaptcha::renderJs() !!}
-                        {!! NoCaptcha::display() !!} --}}
-                    </div> -->
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-4">
+                            <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                            @if($errors->has('g-recaptcha-response'))
+                            <span class="invalid-feedback" style="display: block">
+                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
 
-                    {{-- <div class="g-recaptcha" data-sitekey="6LfHcSUjAAAAAMM3nZKEbxDQODUkCY4x-njz0uZH"></div> --}}
 
                     <input type="submit" value="Login" class="btn solid" />
 
@@ -107,6 +114,17 @@
 
                     <!-- ini captcha -->
                     {{-- <div class="g-recaptcha" data-sitekey="6LfHcSUjAAAAAMM3nZKEbxDQODUkCY4x-njz0uZH"></div> --}}
+
+                    <div class="form-group row">
+                        <div class="col-md-6 offset-md-4">
+                            <div class="g-recaptcha" data-sitekey="{{ env('CAPTCHA_KEY') }}"></div>
+                            @if($errors->has('g-recaptcha-response'))
+                            <span class="invalid-feedback" style="display: block">
+                                <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                            </span>
+                            @endif
+                        </div>
+                    </div>
 
 
                     <input type="submit" class="btn" value="Sign up" />
