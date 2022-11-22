@@ -8,6 +8,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        echo 'Ini adalah halaman user biasah';
+        $data = [
+            "title" => "Home"
+        ];
+        return view("user.home", $data);
     }
 }
