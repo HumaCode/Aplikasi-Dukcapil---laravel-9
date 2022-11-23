@@ -25,7 +25,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('login', 'index')->name('login');
     Route::post('login/proses', 'loginProses');
     Route::post('register/proses', 'registerProses');
-    Route::get('logout', 'logout');
+    Route::post('logout', 'logout');
 });
 
 
@@ -45,5 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('kebijakan', KebijakanController::class);
         Route::resource('data-dukung', DataDukungController::class);
         Route::resource('bantuan', BantuanController::class);
+
+        // Route::get('logout', AuthController::class, 'logout');
     });
 });

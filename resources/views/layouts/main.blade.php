@@ -20,16 +20,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
+
     {{--
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     --}}
+
 
     <!-- Libraries Stylesheet -->
     <link href="assets/libuser/animate/animate.min.css" rel="stylesheet">
     <link href="assets/libuser/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
+
     <link href="assets/cssuser/bootstrap.min.css" rel="stylesheet">
 
     <!-- Favicons -->
@@ -94,8 +97,15 @@
                         <a href="{{ url('kebijakan') }}" class="nav-item nav-link {{ ($title == " Kebijakan Privasi")
                             ? 'active' : '' }}">Kebijakan</a>
                     </div>
-                    <button data-toggle="modal" data-target="#exampleModal"
-                        class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Logout</button>
+
+                    <form action="{{ url('logout') }}" method="post">
+                        @csrf
+                        {{-- <button type="submit" class="btn btn-primary">
+                            Ya</button> --}}
+                        <button type="submit" class="btn btn-light rounded-pill py-2 px-4 ms-3 d-none d-lg-block"
+                            onclick="confirm('Apakah kamu yakin ingin keluar dari dunia ini...?');">Logout</button>
+                    </form>
+
 
 
                 </div>
@@ -156,7 +166,7 @@
                 </div>
                 <!-- Footer End -->
 
-                {{--
+
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -164,21 +174,23 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 ...
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                {{-- <form action="{{ url('logout') }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-primary">
+                                        Ya</button>
+                                </form> --}}
                             </div>
                         </div>
                     </div>
-                </div> --}}
-
+                </div>
 
                 <!-- Back to Top -->
                 <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
@@ -198,6 +210,9 @@
             <script src="assets/js/jquery-3.3.1.min.js"></script>
             <script src="assets/js/jquery.steps.js"></script>
             <script src="assets/js/form.js"></script>
+            {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                crossorigin="anonymous"></script> --}}
 
         </div>
     </div>

@@ -27,6 +27,9 @@ class AuthController extends Controller
 
     public function loginProses(Request $request)
     {
+
+        // return $request->all();
+
         // validasi inputan
         $request->validate(
 
@@ -65,7 +68,7 @@ class AuthController extends Controller
         }
 
         // tampilkan pesan error
-        return back()->with('error', 'Guuoobloogg, NIK karo Password salah cuuk..!!');
+        return back()->with('error', 'Guuoobloogg');
     }
 
     public function registerProses(Request $request)
